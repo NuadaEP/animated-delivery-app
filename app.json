@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "poc-rn",
+    "slug": "poc-rn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/images/iconLauncher/ic_launcher.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./src/assets/images/splash/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#50c8f5"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "br.com.toyougo.rn.poc",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCD_811GmrjMKLCC2_kqKKB_AfgZpfbk_8"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/images/favicon.png"
+    }
+  }
+}
