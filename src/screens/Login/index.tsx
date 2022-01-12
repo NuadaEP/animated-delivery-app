@@ -1,19 +1,19 @@
-import React, {useRef, useMemo} from 'react';
-import {View, Image, SafeAreaView, TextInput} from 'react-native';
+import { useRef, useMemo } from 'react'
+import { View, Image, SafeAreaView, TextInput } from 'react-native'
 
-import type IReference from '../../constants/types/IReference';
-import Button from '../../components/Button';
+import type IReference from '../../constants/types/IReference'
+import Button from '../../components/Button'
 
-import styles from './styles';
-import type {StackScreenProps} from '@react-navigation/stack';
-import type {RootStackParamList} from '../../constants/types/IRootStackParamList';
+import styles from './styles'
+import type { StackScreenProps } from '@react-navigation/stack'
+import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 
 export default function Login({
-  navigation,
+  navigation
 }: StackScreenProps<RootStackParamList, 'Login'>) {
-  const passwordField: IReference = useRef(null);
+  const passwordField: IReference = useRef(null)
 
-  const logo = useMemo(() => require('../../assets/images/logo.png'), []);
+  const logo = useMemo(() => require('../../assets/images/logo.png'), [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -41,5 +41,5 @@ export default function Login({
         />
       </View>
     </SafeAreaView>
-  );
+  )
 }

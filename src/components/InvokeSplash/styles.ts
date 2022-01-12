@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
-import Colors from '../../constants/Colors';
-import Layout from '../../constants/Layout';
+import { StyleSheet } from 'react-native'
+import Colors from '../../constants/Colors'
+import Layout from '../../constants/Layout'
 
 const styles = StyleSheet.create({
   viewAnimated: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: Layout.window.width / 2 - 50,
     top: Layout.window.height / 2 + 110,
-    zIndex: 998,
+    zIndex: 998
   },
   imageAnimated: {
     maxWidth: 200,
@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 999,
     left: Layout.window.width / 2 - 100,
-    top: Layout.window.height / 2 - 50,
+    top: Layout.window.height / 2 - 50
   }
-});
+})
 
-export default styles;
+export default styles

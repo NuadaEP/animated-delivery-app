@@ -1,45 +1,48 @@
-import React, { useEffect, useMemo } from 'react';
-import { SafeAreaView, Animated } from 'react-native';
+import { useEffect, useMemo } from 'react'
+import { SafeAreaView, Animated } from 'react-native'
 
-import styles from './styles';
+import styles from './styles'
 
 interface IProps {
-  attepted: boolean;
-  navigate: Function;
+  attepted: boolean
+  navigate: () => undefined | Animated.EndCallback
 }
 
 export default function InvokeSplash({ attepted, navigate }: IProps) {
-  const coverCircle = useMemo(() => new Animated.Value(0), []);
-  const logoOpacity = useMemo(() => new Animated.Value(0), []);
-  const logo = useMemo(() => require('../../assets/images/logo_black.png'), []);
+  const coverCircle = useMemo(() => new Animated.Value(0), [])
+  const logoOpacity = useMemo(() => new Animated.Value(0), [])
+  const logo = useMemo(() => require('../../assets/images/logo_black.png'), [])
 
-  const animatedStyle = useMemo(() => ({
-    view: {
-      transform: [
-        {
-          scaleX: coverCircle.interpolate({
-            inputRange: [0, 100],
-            outputRange: [0, 20],
-            extrapolate: "clamp"
-          })
-        },
-        {
-          scaleY: coverCircle.interpolate({
-            inputRange: [0, 100],
-            outputRange: [0, 20],
-            extrapolate: "clamp"
-          })
-        }
-      ]
-    },
-    image: {
-      opacity: logoOpacity.interpolate({
-        inputRange: [0, 100],
-        outputRange: [0, 1],
-        extrapolate: "clamp"
-      })
-    }
-  }), [coverCircle, logoOpacity])
+  const animatedStyle = useMemo(
+    () => ({
+      view: {
+        transform: [
+          {
+            scaleX: coverCircle.interpolate({
+              inputRange: [0, 100],
+              outputRange: [0, 20],
+              extrapolate: 'clamp'
+            })
+          },
+          {
+            scaleY: coverCircle.interpolate({
+              inputRange: [0, 100],
+              outputRange: [0, 20],
+              extrapolate: 'clamp'
+            })
+          }
+        ]
+      },
+      image: {
+        opacity: logoOpacity.interpolate({
+          inputRange: [0, 100],
+          outputRange: [0, 1],
+          extrapolate: 'clamp'
+        })
+      }
+    }),
+    [coverCircle, logoOpacity]
+  )
 
   useEffect(() => {
     if (attepted === true) {
@@ -65,19 +68,19 @@ export default function InvokeSplash({ attepted, navigate }: IProps) {
           duration: 500,
           useNativeDriver: false
         })
-      ]).start(navigate());
+      ]).start(navigate())
     }
-  }, [attepted, navigate]);
+  }, [attepted, navigate])
 
   return (
     <SafeAreaView>
-      <Animated.View style={[ styles.viewAnimated, animatedStyle.view ]} />
+      <Animated.View style={[styles.viewAnimated, animatedStyle.view]} />
 
       <Animated.Image
-        style={[ styles.imageAnimated, animatedStyle.image ]}
+        style={[styles.imageAnimated, animatedStyle.image]}
         source={logo}
         resizeMode="contain"
       />
     </SafeAreaView>
-  );
+  )
 }

@@ -1,23 +1,31 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { GestureResponderEvent, TouchableOpacity } from 'react-native'
 
-import StyledText from '../StyledText';
+import StyledText from '../StyledText'
 
-import styles from './styles';
+import styles from './styles'
 
-interface IButton {
-  text: string;
-  blue?: boolean;
-  onPress(data: Object<T> | void): void | any;
+interface IButton<T = void> {
+  text: string
+  blue?: boolean
+  onPress(data: T): void | any
 }
 
-export default function Button({ text, onPress, blue = false }: IButton) {
+export default function Button({
+  text,
+  onPress,
+  blue = false
+}: IButton<GestureResponderEvent>) {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       onPress={onPress}
-      style={[styles.buttonShape, blue ? styles.blue : styles.white ]}>
-    <StyledText style={blue ? styles.textForBlueButton : styles.textForWhiteButton}>{text}</StyledText>
-  </TouchableOpacity>
+      style={[styles.buttonShape, blue ? styles.blue : styles.white]}
+    >
+      <StyledText
+        style={blue ? styles.textForBlueButton : styles.textForWhiteButton}
+      >
+        {text}
+      </StyledText>
+    </TouchableOpacity>
   )
 }

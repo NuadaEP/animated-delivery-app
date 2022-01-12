@@ -1,4 +1,4 @@
-import { Platform, PixelRatio } from 'react-native';
+import { Platform, PixelRatio } from 'react-native'
 
 export function getPixelSize(pixels: number) {
   return Platform.select({

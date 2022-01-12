@@ -1,22 +1,25 @@
-import React from 'react';
-import MapViewDirections from 'react-native-maps-directions';
+import MapViewDirections from 'react-native-maps-directions'
 
-import Colors from '../../constants/Colors';
-// import { Container } from './styles';
+import Colors from '../../constants/Colors'
 
 interface IGeolocation {
-  latitude: number;
-  longitude: number;
+  latitude: number
+  longitude: number
 }
 
 interface IProps {
-  destination: IGeolocation;
-  origin: IGeolocation;
-  onReady(result: any): void;
-  resetOnChange: boolean;
+  destination: IGeolocation
+  origin: IGeolocation
+  onReady(result: any): void
+  resetOnChange: boolean
 }
 
-export default function Directions({ destination, origin, onReady, resetOnChange }: IProps) {
+export default function Directions({
+  destination,
+  origin,
+  onReady,
+  resetOnChange
+}: IProps) {
   return (
     <MapViewDirections
       destination={destination}
@@ -29,5 +32,5 @@ export default function Directions({ destination, origin, onReady, resetOnChange
       precision="high"
       resetOnChange={resetOnChange}
     />
-  );
-};
+  )
+}

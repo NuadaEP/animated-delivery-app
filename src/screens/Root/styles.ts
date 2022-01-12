@@ -1,14 +1,14 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'white'
   },
   imageContainer: {
     flex: 2,
     justifyContent: 'flex-end',
-    alignItems: "center",
+    alignItems: 'center'
   },
   image: {
     width: 200,
@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
   },
   driver: {
     height: 400,
-    top: 40,
+    top: 40
   },
   buttonContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   titleText: {
     marginBottom: 30,
     fontSize: 15
-  },
-});
+  }
+})
 
-export default styles;
+export default styles

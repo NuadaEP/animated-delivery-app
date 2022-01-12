@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
-import Colors from '../../constants/Colors';
-import Layout from '../../constants/Layout';
+import { StyleSheet } from 'react-native'
+import Colors from '../../constants/Colors'
+import Layout from '../../constants/Layout'
 
 const styles = StyleSheet.create({
   buttonShape: {
@@ -9,28 +9,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    borderWidth: 1,
+    borderWidth: 1
   },
   blue: {
     backgroundColor: Colors.app.blue,
     borderColor: Colors.app.blue,
-    marginBottom: 10,
+    marginBottom: 10
   },
   white: {
     backgroundColor: 'white',
     borderColor: 'black',
-    marginBottom: 10,
+    marginBottom: 10
   },
   textForBlueButton: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 15.5,
+    fontSize: 15.5
   },
   textForWhiteButton: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 15.5,
-  },
-});
+    fontSize: 15.5
+  }
+})
 
-export default styles;
+export default styles

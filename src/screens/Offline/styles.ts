@@ -1,32 +1,32 @@
-import { StyleSheet } from 'react-native';
-import Colors from '../../constants/Colors';
+import { StyleSheet } from 'react-native'
+import Colors from '../../constants/Colors'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   lottieContainer: {
-    paddingTop: 90,
+    paddingTop: 90
   },
   lottieAnimation: {
     width: 400,
     height: 400,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   buttonContainer: {
     flex: 2,
-    flexDirection: "column"
+    flexDirection: 'column'
   },
   startButton: {
     width: 100,
     height: 100,
     borderRadius: 100,
     backgroundColor: Colors.app.blue,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   startButtonText: {
     color: 'white',
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
     flex: 2,
     color: 'red',
     fontSize: 15,
-    marginTop: 50,
+    marginTop: 50
   }
-});
+})
 
-export default styles;
+export default styles

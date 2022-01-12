@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import Layout from '../../constants/Layout';
+import { StyleSheet } from 'react-native'
+import Layout from '../../constants/Layout'
 
 const styles = StyleSheet.create({
   constainer: {
@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
   },
   mainAnimation: {
     flex: 4,
-    justifyContent: "flex-end",
-    alignItems: "center",
+    justifyContent: 'flex-end',
+    alignItems: 'center'
     // backgroundColor: '#fff',
   },
   callPhoneMainAnimation: {
@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
     height: Layout.window.height / 1.5
   },
   callPhone: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     flex: 1
   },
   callPhoneAnimation: {
     width: 120,
     height: 120
   }
-});
+})
 
-export default styles;
+export default styles

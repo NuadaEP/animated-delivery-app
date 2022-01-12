@@ -1,18 +1,21 @@
-import React, { useMemo } from 'react';
-import {View, Image, SafeAreaView} from 'react-native';
-import type { StackScreenProps } from '@react-navigation/stack';
+import { useMemo } from 'react'
+import { View, Image, SafeAreaView } from 'react-native'
+import type { StackScreenProps } from '@react-navigation/stack'
 
-import StyledText from '../../components/StyledText';
-import Button from '../../components/Button';
-import type { RootStackParamList } from '../../constants/types/IRootStackParamList';
+import StyledText from '../../components/StyledText'
+import Button from '../../components/Button'
+import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 
-import styles from './styles';
+import styles from './styles'
 
 export default function Root({
-  navigation,
+  navigation
 }: StackScreenProps<RootStackParamList, 'Root'>) {
-  const logo = useMemo(() => require('../../assets/images/logo.png'), []);
-  const driver = useMemo(() => require('../../assets/gifAnimations/driver.gif'), []);
+  const logo = useMemo(() => require('../../assets/images/logo.png'), [])
+  const driver = useMemo(
+    () => require('../../assets/gifAnimations/driver.gif'),
+    []
+  )
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,5 +32,5 @@ export default function Root({
         <Button text="Login" onPress={() => navigation.navigate('Login')} />
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}

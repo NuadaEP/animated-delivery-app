@@ -1,18 +1,31 @@
-import React, { SetStateAction, useCallback, useEffect, useState, useRef, useMemo } from 'react';
-import { SafeAreaView, Text, View, TouchableOpacity, Animated } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
-import * as Location from 'expo-location';
+import {
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+  useRef,
+  useMemo
+} from 'react'
+import {
+  SafeAreaView,
+  Text,
+  View,
+  TouchableOpacity,
+  Animated
+} from 'react-native'
+import MapView, { Marker } from 'react-native-maps'
+import * as Location from 'expo-location'
 
-import Colors from '../../constants/Colors';
-import { getPixelSize } from '../../constants/Utils';
-import type IReference from '../../constants/types/IReference';
-import Directions from '../../components/Directions';
-import StyledText from '../../components/StyledText';
+import Colors from '../../constants/Colors'
+import { getPixelSize } from '../../constants/Utils'
+import type IReference from '../../constants/types/IReference'
+import Directions from '../../components/Directions'
+import StyledText from '../../components/StyledText'
 
-import styles from './styles';
+import styles from './styles'
 
-export default function Map()  {
-  const [ location, setLocation ] = useState({
+export default function Map() {
+  const [location, setLocation] = useState({
     latitude: 0,
     longitude: 0,
     latitudeDelta: 0,
@@ -21,75 +34,91 @@ export default function Map()  {
     altitude: 0,
     altitudeAccuracy: 0,
     heading: 0,
-    speed: 0,
-  });
-  const [navigate, setNavigate] = useState(false);
-  const [canNavigate, setCanNavigate] = useState(false);
+    speed: 0
+  })
+  const [navigate, setNavigate] = useState(false)
+  const [canNavigate, setCanNavigate] = useState(false)
 
-  const mapView: IReference = useRef(null);
-  const camera = useMemo(() => ({
-    center: {
-      latitude: location.latitude,
-      longitude: location.longitude,
-    },
-    altitude: location.altitude,
-    heading: location.heading,
-    pitch: 1,
-    zoom: 12
-  }), [location]);
-  const destination = useMemo(() => ({ longitude: -48.5621955, latitude: -22.3005805 }), []);
+  const mapView: IReference = useRef(null)
+  const camera = useMemo(
+    () => ({
+      center: {
+        latitude: location.latitude,
+        longitude: location.longitude
+      },
+      altitude: location.altitude,
+      heading: location.heading,
+      pitch: 1,
+      zoom: 12
+    }),
+    [location]
+  )
+  const destination = useMemo(
+    () => ({ longitude: -48.5621955, latitude: -22.3005805 }),
+    []
+  )
 
   const handleLocation = useCallback(async () => {
-    await Location.requestPermissionsAsync();
+    await Location.requestPermissionsAsync()
 
-    const { coords }: SetStateAction<any> = await Location.getLastKnownPositionAsync();
+    const { coords }: SetStateAction<any> =
+      await Location.getLastKnownPositionAsync()
 
     setLocation({
-      ...coords ,
+      ...coords,
       latitudeDelta: coords.latitude,
-      longitudeDelta: coords.longitude,
-    });
-  }, [Location, setLocation]);
+      longitudeDelta: coords.longitude
+    })
+  }, [Location, setLocation])
 
-  const onLocationChange = useCallback(({ nativeEvent: { coordinate } }) => {
-    if (navigate) {
-      setLocation({
-        ...location,
-        accuracy: coordinate.accuracy,
-        altitude: coordinate.altitude,
-        heading: coordinate.heading,
-        latitude: coordinate.latitude,
-        longitude: coordinate.longitude,
-        speed: coordinate.speed
-      })
-    }
-  }, [navigate]);
-
-  const onDirectionReady = useCallback(result => {
-    mapView.current.fitToCoordinates(result.coordinates, {
-      edgePadding: {
-        right: getPixelSize(50),
-        left: getPixelSize(50),
-        top: getPixelSize(50),
-        bottom: getPixelSize(50)
+  const onLocationChange = useCallback(
+    ({ nativeEvent: { coordinate } }) => {
+      if (navigate) {
+        setLocation({
+          ...location,
+          accuracy: coordinate.accuracy,
+          altitude: coordinate.altitude,
+          heading: coordinate.heading,
+          latitude: coordinate.latitude,
+          longitude: coordinate.longitude,
+          speed: coordinate.speed
+        })
       }
-    });
+    },
+    [navigate]
+  )
 
-    setCanNavigate(true);
-  }, [mapView]);
+  const onDirectionReady = useCallback(
+    result => {
+      mapView.current.fitToCoordinates(result.coordinates, {
+        edgePadding: {
+          right: getPixelSize(50),
+          left: getPixelSize(50),
+          top: getPixelSize(50),
+          bottom: getPixelSize(50)
+        }
+      })
+
+      setCanNavigate(true)
+    },
+    [mapView]
+  )
 
   const onPressRide = useCallback(() => {
-    mapView.current.animateCamera({...camera, zoom: 18}, 1000);
+    mapView.current.animateCamera({ ...camera, zoom: 18 }, 1000)
 
-    setNavigate(!navigate);
-  }, [navigate, setNavigate, camera]);
+    setNavigate(!navigate)
+  }, [navigate, setNavigate, camera])
 
   useEffect(() => {
-    handleLocation();
-  }, []);
+    handleLocation()
+  }, [])
 
-  const buttonOffset = useMemo(() => new Animated.Value(0), []);
-  const TouchableOpacityAnimated = useMemo(() => Animated.createAnimatedComponent(TouchableOpacity), []);
+  const buttonOffset = useMemo(() => new Animated.Value(0), [])
+  const TouchableOpacityAnimated = useMemo(
+    () => Animated.createAnimatedComponent(TouchableOpacity),
+    []
+  )
 
   useEffect(() => {
     if (canNavigate === true) {
@@ -99,13 +128,13 @@ export default function Map()  {
         useNativeDriver: false
       }).start()
     }
-  }, [canNavigate]);
+  }, [canNavigate])
 
   return (
     <SafeAreaView style={styles.container}>
-      {canNavigate === true &&
-        (
-          <TouchableOpacityAnimated style={[
+      {canNavigate === true && (
+        <TouchableOpacityAnimated
+          style={[
             styles.startRideButton,
             {
               transform: [
@@ -125,17 +154,15 @@ export default function Map()  {
                 }
               ]
             }
-          ]} activeOpacity={0.8} onPress={onPressRide}>
-            <StyledText  style={styles.startRideText}>
-              {
-                navigate
-                ? 'Cheguei!'
-                : 'Iniciar'
-              }
-            </StyledText>
-          </TouchableOpacityAnimated>
-        )
-      }
+          ]}
+          activeOpacity={0.8}
+          onPress={onPressRide}
+        >
+          <StyledText style={styles.startRideText}>
+            {navigate ? 'Cheguei!' : 'Iniciar'}
+          </StyledText>
+        </TouchableOpacityAnimated>
+      )}
       <MapView
         style={styles.mapView}
         ref={mapView}
@@ -171,5 +198,5 @@ export default function Map()  {
         </Marker>
       </MapView>
     </SafeAreaView>
-  );
+  )
 }

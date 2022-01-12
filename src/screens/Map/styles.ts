@@ -1,6 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
-import Layout from '../../constants/Layout';
-import Colors from '../../constants/Colors';
+import { StyleSheet, Platform } from 'react-native'
+import Layout from '../../constants/Layout'
+import Colors from '../../constants/Colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   mapView: {
     width: Layout.window.width,
-    height: Layout.window.height + 30,
+    height: Layout.window.height + 30
   },
   locationBox: {
     backgroundColor: '#fff',
@@ -19,11 +19,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     ...Platform.select({
       ios: {
-        marginTop: 20,
+        marginTop: 20
       },
       android: {
         marginTop: 10,
-        marginLeft: 10,
+        marginLeft: 10
       }
     })
   },
@@ -31,22 +31,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 8,
     fontSize: 14,
-    color: '#333',
+    color: '#333'
   },
   locationTimeBox: {
     backgroundColor: Colors.app.blue,
     paddingVertical: 3,
-    paddingHorizontal: 8,
+    paddingHorizontal: 8
   },
   locationTimeText: {
     color: '#fff',
     fontSize: 12,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   locationTimeTextSmall: {
     color: '#fff',
     fontSize: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   destinationPoint: {
     borderWidth: 5,
@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.app.blue,
     elevation: 3,
 
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   startRideText: {
     color: 'white',
     fontWeight: 'bold'
   }
-});
+})
 
-export default styles;
+export default styles
