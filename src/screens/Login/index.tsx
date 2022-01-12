@@ -1,12 +1,12 @@
-import React, { useRef, useMemo } from 'react';
+import React, {useRef, useMemo} from 'react';
 import {View, Image, SafeAreaView, TextInput} from 'react-native';
 
 import type IReference from '../../constants/types/IReference';
 import Button from '../../components/Button';
 
 import styles from './styles';
-import type { StackScreenProps } from '@react-navigation/stack';
-import type { RootStackParamList } from '../../constants/types/IRootStackParamList';
+import type {StackScreenProps} from '@react-navigation/stack';
+import type {RootStackParamList} from '../../constants/types/IRootStackParamList';
 
 export default function Login({
   navigation,
@@ -27,15 +27,19 @@ export default function Login({
           returnKeyType="next"
           onSubmitEditing={() => passwordField.current.focus()}
           style={styles.input}
-          />
+        />
         <TextInput
           placeholder="Senha"
           secureTextEntry={true}
           ref={passwordField}
           style={styles.input}
-          />
-        <Button text="Entrar" onPress={() => navigation.navigate('Offline')} blue />
+        />
+        <Button
+          text="Entrar"
+          onPress={() => navigation.navigate('Offline')}
+          blue
+        />
       </View>
     </SafeAreaView>
   );
-};
+}

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
@@ -16,15 +16,15 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex: 2,
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     padding: 20,
   },
   input: {
     width: '100%',
     borderBottomWidth: 0.5,
     borderBottomColor: 'rgba(0, 0, 0, 0.2)',
-  }
+  },
 });
 
 export default styles;
