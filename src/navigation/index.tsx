@@ -10,12 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import type { RootStackParamList } from '../constants/types/IRootStackParamList'
 
-import Root from '../screens/Root'
-import Login from '../screens/Login'
-import Offline from '../screens/Offline'
-import Online from '../screens/Online'
-import Call from '../screens/Call'
-import Map from '../screens/Map'
+import { Call, Login, Map, Offline, Online, Root } from '../screens'
 
 enableScreens()
 

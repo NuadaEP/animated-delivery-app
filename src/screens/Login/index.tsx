@@ -8,7 +8,7 @@ import styles from './styles'
 import type { StackScreenProps } from '@react-navigation/stack'
 import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 
-export default function Login({
+export function Login({
   navigation
 }: StackScreenProps<RootStackParamList, 'Login'>) {
   const passwordField: IReference = useRef(null)

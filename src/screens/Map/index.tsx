@@ -24,7 +24,7 @@ import StyledText from '../../components/StyledText'
 
 import styles from './styles'
 
-export default function Map() {
+export function Map() {
   const [location, setLocation] = useState({
     latitude: 0,
     longitude: 0,

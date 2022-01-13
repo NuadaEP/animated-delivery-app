@@ -8,7 +8,7 @@ import type { RootStackParamList } from '../../constants/types/IRootStackParamLi
 
 import styles from './styles'
 
-export default function Root({
+export function Root({
   navigation
 }: StackScreenProps<RootStackParamList, 'Root'>) {
   const logo = useMemo(() => require('../../assets/images/logo.png'), [])

@@ -14,7 +14,7 @@ import Colors from '../../constants/Colors'
 
 import styles from './styles'
 
-export default function Online({
+export function Online({
   navigation
 }: StackScreenProps<RootStackParamList, 'Online'>) {
   const buttonArounded = useMemo(() => new Animated.Value(0), [])

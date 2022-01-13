@@ -9,7 +9,7 @@ import Colors from '../../constants/Colors'
 
 import styles from './styles'
 
-export default function Offline({
+export function Offline({
   navigation
 }: StackScreenProps<RootStackParamList, 'Offline'>) {
   const buttonArounded = useMemo(() => new Animated.Value(0), [])

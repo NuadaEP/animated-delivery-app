@@ -13,7 +13,7 @@ import type { RootStackParamList } from '../../constants/types/IRootStackParamLi
 
 import styles from './styles'
 
-export default function Call({
+export function Call({
   navigation
 }: StackScreenProps<RootStackParamList, 'Call'>) {
   const callPhone = useMemo(
