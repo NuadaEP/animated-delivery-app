@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react'
+import { useRef } from 'react'
 import { View, Image, SafeAreaView, TextInput } from 'react-native'
 
 import type IReference from '../../constants/types/IReference'
@@ -13,12 +13,14 @@ export function Login({
 }: StackScreenProps<RootStackParamList, 'Login'>) {
   const passwordField: IReference = useRef(null)
 
-  const logo = useMemo(() => require('../../assets/images/logo.png'), [])
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={logo} resizeMode="center" style={styles.image} />
+        <Image
+          source={require('../../assets/images/logo.png')}
+          resizeMode="center"
+          style={styles.image}
+        />
       </View>
       <View style={styles.formContainer}>
         <TextInput

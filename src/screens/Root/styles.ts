@@ -7,18 +7,13 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 2,
-    justifyContent: 'flex-end',
+    flexDirection: 'column-reverse',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
+  driver: {},
   image: {
-    width: 200,
-    height: 50,
-    top: 110,
-    zIndex: 999
-  },
-  driver: {
-    height: 400,
-    top: 40
+    width: '70%'
   },
   buttonContainer: {
     flex: 1,

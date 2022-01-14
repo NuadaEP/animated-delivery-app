@@ -6,7 +6,7 @@ interface ITextProps extends TextProps {
   children?: string
 }
 
-export default function StyledText(props: ITextProps) {
+export function StyledText(props: ITextProps) {
   let [fontsLoaded] = useFonts({
     'MADE-TOMMY-Black_PERSONAL-USE': require('../../assets/fonts/MADE-TOMMY-Regular_PERSONAL-USE.otf')
   })

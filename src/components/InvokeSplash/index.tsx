@@ -8,7 +8,7 @@ interface IProps {
   navigate: () => undefined | Animated.EndCallback
 }
 
-export default function InvokeSplash({ attepted, navigate }: IProps) {
+export function InvokeSplash({ attepted, navigate }: IProps) {
   const coverCircle = useMemo(() => new Animated.Value(0), [])
   const logoOpacity = useMemo(() => new Animated.Value(0), [])
   const logo = useMemo(() => require('../../assets/images/logo_black.png'), [])

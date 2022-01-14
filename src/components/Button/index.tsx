@@ -1,6 +1,6 @@
 import { GestureResponderEvent, TouchableOpacity } from 'react-native'
 
-import StyledText from '../StyledText'
+import { StyledText } from '../'
 
 import styles from './styles'
 
@@ -10,7 +10,7 @@ interface IButton<T = void> {
   onPress(data: T): void | any
 }
 
-export default function Button({
+export function Button({
   text,
   onPress,
   blue = false

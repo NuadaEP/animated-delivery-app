@@ -14,7 +14,7 @@ interface IProps {
   resetOnChange: boolean
 }
 
-export default function Directions({
+export function Directions({
   destination,
   origin,
   onReady,
