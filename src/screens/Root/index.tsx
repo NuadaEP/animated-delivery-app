@@ -1,11 +1,10 @@
-import { View, Image, SafeAreaView } from 'react-native'
+import { View, SafeAreaView } from 'react-native'
 import type { StackScreenProps } from '@react-navigation/stack'
 
-import { StyledText, Button } from '../../components'
+import { StyledText, Button, AnimatedImage, Logo } from '../../components'
 import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 
 import styles from './styles'
-import AnimatedLottieView from 'lottie-react-native'
 
 export function Root({
   navigation
@@ -13,18 +12,12 @@ export function Root({
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
-        <AnimatedLottieView
+        <AnimatedImage
           source={require('../../assets/lottie/scooter.json')}
-          autoPlay
-          loop
-          cacheStrategy="weak"
           style={styles.driver}
         />
-        <Image
-          source={require('../../assets/images/logo.png')}
-          resizeMode="center"
-          style={styles.image}
-        />
+
+        <Logo />
       </View>
       <View style={styles.buttonContainer}>
         <StyledText style={styles.titleText}>

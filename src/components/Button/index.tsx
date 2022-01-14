@@ -1,6 +1,5 @@
 import { GestureResponderEvent, TouchableOpacity } from 'react-native'
-
-import { StyledText } from '../'
+import { StyledText } from '../StyledText'
 
 import styles from './styles'
 

@@ -1,28 +1,13 @@
-import { Text, TextProps, View } from 'react-native'
-import { useFonts } from 'expo-font'
+import { Text, TextProps } from 'react-native'
+
+import type { Fonts } from '../../constants/Fonts'
 
 interface ITextProps extends TextProps {
-  fontWeight?: 'bold' | 'normal'
-  children?: string
+  fontFamily?: Fonts
 }
 
 export function StyledText(props: ITextProps) {
-  let [fontsLoaded] = useFonts({
-    'MADE-TOMMY-Black_PERSONAL-USE': require('../../assets/fonts/MADE-TOMMY-Regular_PERSONAL-USE.otf')
-  })
+  const fontFamily = props.fontFamily || 'MADE-TOMMY-Regular'
 
-  if (props.fontWeight === 'bold') {
-    ;[fontsLoaded] = useFonts({
-      'MADE-TOMMY-Black_PERSONAL-USE': require('../../assets/fonts/MADE-TOMMY-Bold_PERSONAL-USE.otf')
-    })
-  }
-
-  if (!fontsLoaded) return <View />
-
-  return (
-    <Text
-      {...props}
-      style={[props.style, { fontFamily: 'MADE-TOMMY-Black_PERSONAL-USE' }]}
-    />
-  )
+  return <Text {...props} style={[props.style, { fontFamily }]} />
 }
