@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   lottieContainer: {
-    paddingTop: 90
+    paddingTop: 90,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   lottieAnimation: {
     width: 400,

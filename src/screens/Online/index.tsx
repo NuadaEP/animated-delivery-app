@@ -1,15 +1,9 @@
 import { useCallback, useMemo } from 'react'
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Animated,
-  Image
-} from 'react-native'
+import { View, SafeAreaView, TouchableOpacity, Animated } from 'react-native'
 import type { StackScreenProps } from '@react-navigation/stack'
 
 import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
-import StyledText from '../../components/StyledText'
+import { AnimatedImage, StyledText } from '../../components'
 import Colors from '../../constants/Colors'
 
 import styles from './styles'
@@ -21,11 +15,6 @@ export function Online({
 
   const inputRange = useMemo(() => [0, 50, 100], [])
   const outputRange = useMemo(() => [1, 1.7, 2], [])
-
-  const driver = useMemo(
-    () => require('../../assets/gifAnimations/driver-awaiting.gif'),
-    []
-  )
 
   const aroundedUp = useCallback(() => {
     Animated.timing(buttonArounded, {
@@ -50,7 +39,10 @@ export function Online({
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.lottieContainer}>
-        <Image source={driver} style={{ height: 400 }} resizeMode="contain" />
+        <AnimatedImage
+          source={require('../../assets/lottie/scooter-awaiting.json')}
+          style={{ height: 400 }}
+        />
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
@@ -95,7 +87,7 @@ export function Online({
               }
             ]}
           ></Animated.View>
-          <StyledText style={styles.startButtonText}>ENCERRAR</StyledText>
+          <StyledText style={styles.startButtonText}>FINISH</StyledText>
         </TouchableOpacity>
       </View>
       <StyledText

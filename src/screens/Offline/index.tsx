@@ -1,10 +1,9 @@
 import { useCallback, useMemo } from 'react'
 import { View, SafeAreaView, TouchableOpacity, Animated } from 'react-native'
 import type { StackScreenProps } from '@react-navigation/stack'
-import LottieView from 'lottie-react-native'
 
 import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
-import StyledText from '../../components/StyledText'
+import { AnimatedImage, StyledText } from '../../components'
 import Colors from '../../constants/Colors'
 
 import styles from './styles'
@@ -13,10 +12,6 @@ export function Offline({
   navigation
 }: StackScreenProps<RootStackParamList, 'Offline'>) {
   const buttonArounded = useMemo(() => new Animated.Value(0), [])
-  const lottieAnimation = useMemo(
-    () => require('../../assets/lottie/scooter-home.json'),
-    []
-  )
 
   const animationMemo = useMemo(
     () => ({
@@ -75,10 +70,9 @@ export function Offline({
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.lottieContainer}>
-        <LottieView
+        <AnimatedImage
+          source={require('../../assets/lottie/scooter-home.json')}
           style={styles.lottieAnimation}
-          source={lottieAnimation}
-          autoPlay
         />
       </View>
       <View style={styles.buttonContainer}>
@@ -97,10 +91,10 @@ export function Offline({
               animationMemo
             ]}
           ></Animated.View>
-          <StyledText style={styles.startButtonText}>INICIAR</StyledText>
+          <StyledText style={styles.startButtonText}>START</StyledText>
         </TouchableOpacity>
       </View>
-      <StyledText style={styles.offlineText}>Você está offline</StyledText>
+      <StyledText style={styles.offlineText}>You are offline</StyledText>
     </SafeAreaView>
   )
 }
