@@ -6,16 +6,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   imageContainer: {
-    flex: 1,
-    justifyContent: 'center',
+    flex: 0.6,
+    justifyContent: 'flex-end',
     alignItems: 'center'
   },
-  image: {
-    width: 200,
-    height: 50
-  },
   formContainer: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'space-evenly',
     alignItems: 'center',
     padding: 20

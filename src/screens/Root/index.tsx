@@ -21,7 +21,7 @@ export function Root({
       </View>
       <View style={styles.buttonContainer}>
         <StyledText style={styles.titleText}>
-          Ganhe dinheiro com Toyougo
+          Ganhe dinheiro com DeliveryApp
         </StyledText>
         <Button onPress={() => false} text="Cadastre-se" blue />
 

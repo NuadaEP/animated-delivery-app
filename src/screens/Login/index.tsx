@@ -1,8 +1,8 @@
 import { useRef } from 'react'
-import { View, Image, SafeAreaView, TextInput } from 'react-native'
+import { View, SafeAreaView, TextInput } from 'react-native'
 
 import type IReference from '../../constants/types/IReference'
-import Button from '../../components/Button'
+import { Button, Logo } from '../../components'
 
 import styles from './styles'
 import type { StackScreenProps } from '@react-navigation/stack'
@@ -16,11 +16,7 @@ export function Login({
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image
-          source={require('../../assets/images/logo.png')}
-          resizeMode="center"
-          style={styles.image}
-        />
+        <Logo />
       </View>
       <View style={styles.formContainer}>
         <TextInput
@@ -32,9 +28,10 @@ export function Login({
         />
         <TextInput
           placeholder="Senha"
-          secureTextEntry={true}
+          secureTextEntry
           ref={passwordField}
           style={styles.input}
+          onSubmitEditing={() => navigation.navigate('Offline')}
         />
         <Button
           text="Entrar"
