@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    borderWidth: 1
+    borderWidth: 0.5
   },
   blue: {
     backgroundColor: Colors.app.blue,

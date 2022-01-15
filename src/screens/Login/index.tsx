@@ -34,7 +34,7 @@ export function Login({
           onSubmitEditing={() => navigation.navigate('Offline')}
         />
         <Button
-          text="Entrar"
+          text="Sign In"
           onPress={() => navigation.navigate('Offline')}
           blue
         />

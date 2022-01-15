@@ -21,11 +21,11 @@ export function Root({
       </View>
       <View style={styles.buttonContainer}>
         <StyledText style={styles.titleText}>
-          Ganhe dinheiro com DeliveryApp
+          Make money with DeliveryApp
         </StyledText>
-        <Button onPress={() => false} text="Cadastre-se" blue />
+        <Button onPress={() => false} text="Sign On" blue />
 
-        <Button text="Login" onPress={() => navigation.navigate('Login')} />
+        <Button text="Sign In" onPress={() => navigation.navigate('Login')} />
       </View>
     </SafeAreaView>
   )
