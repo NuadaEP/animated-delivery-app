@@ -40,8 +40,8 @@ export function Online({
     <SafeAreaView style={styles.container}>
       <View style={styles.lottieContainer}>
         <AnimatedImage
-          source={require('../../assets/lottie/scooter-awaiting.json')}
-          style={{ height: 400 }}
+          source={require('../../assets/lottie/weiting.json')}
+          style={styles.lottieAnimation}
         />
       </View>
       <View style={styles.buttonContainer}>
