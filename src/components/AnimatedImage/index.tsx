@@ -4,17 +4,19 @@ import type { StyleProp, ViewStyle } from 'react-native'
 type AnimatedImageProp = {
   source: string | NodeRequire | any
   style?: StyleProp<ViewStyle>
+  loop?: boolean
 }
 
 export function AnimatedImage({
   source,
-  style
+  style,
+  loop = true
 }: AnimatedImageProp): React.ReactElement {
   return (
     <AnimatedLottieView
       source={source}
       autoPlay
-      loop
+      loop={loop}
       cacheStrategy="weak"
       style={style}
     />

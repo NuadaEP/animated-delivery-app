@@ -45,8 +45,8 @@ const options = {
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={Root} options={options.noHeader} />
       <Stack.Screen name="Call" component={Call} options={options.noHeader} />
+      <Stack.Screen name="Root" component={Root} options={options.noHeader} />
       <Stack.Screen name="Login" component={Login} options={options.login} />
       <Stack.Screen
         name="Online"

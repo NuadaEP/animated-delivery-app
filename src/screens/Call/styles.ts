@@ -8,13 +8,11 @@ const styles = StyleSheet.create({
   },
   mainAnimation: {
     flex: 4,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center'
-    // backgroundColor: '#fff',
   },
   callPhoneMainAnimation: {
-    width: Layout.window.width * 1.2,
-    height: Layout.window.height / 1.5
+    width: Layout.window.width
   },
   callPhone: {
     justifyContent: 'center',

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo } from 'react'
-import { Image, SafeAreaView, Animated, Vibration, View } from 'react-native'
+import { SafeAreaView, Animated, Vibration, View } from 'react-native'
+import LottieView from 'lottie-react-native'
 import {
   PanGestureHandler,
   PanGestureHandlerStateChangeEvent,
@@ -7,23 +8,15 @@ import {
 } from 'react-native-gesture-handler'
 import { Audio } from 'expo-av'
 import type { StackScreenProps } from '@react-navigation/stack'
-import LottieView from 'lottie-react-native'
 
 import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
+import { AnimatedImage } from '../../components'
 
 import styles from './styles'
 
 export function Call({
   navigation
 }: StackScreenProps<RootStackParamList, 'Call'>) {
-  const callPhone = useMemo(
-    () => require('../../assets/lottie/call_phone.json'),
-    []
-  )
-  const callPhoneMain = useMemo(
-    () => require('../../assets/gifAnimations/call_phone_main.gif'),
-    []
-  )
   const callMusic = useMemo(
     () => require('../../assets/sounds/notification_sound.mp3'),
     []
@@ -89,7 +82,7 @@ export function Call({
   }, [sound, Audio, callMusic])
 
   useEffect(() => {
-    audio()
+    // audio()
 
     Vibration.vibrate([1000, 1000], true)
   }, [audio, Vibration])
@@ -97,10 +90,10 @@ export function Call({
   return (
     <SafeAreaView style={styles.constainer}>
       <View style={styles.mainAnimation}>
-        <Image
+        <AnimatedImage
           style={styles.callPhoneMainAnimation}
-          source={callPhoneMain}
-          resizeMode="contain"
+          source={require('../../assets/lottie/call_phone_main.json')}
+          loop={false}
         />
       </View>
       <PanGestureHandler
@@ -141,7 +134,7 @@ export function Call({
                 ]
               }
             ]}
-            source={callPhone}
+            source={require('../../assets/lottie/call_phone.json')}
             autoPlay
           />
         </Animated.View>

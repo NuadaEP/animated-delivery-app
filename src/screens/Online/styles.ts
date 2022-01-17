@@ -10,16 +10,16 @@ const styles = StyleSheet.create({
   },
   lottieContainer: {
     paddingTop: 90,
+    flex: 6,
     alignItems: 'center',
     justifyContent: 'center'
   },
   lottieAnimation: {
-    width: 400,
-    height: 400,
+    width: 350,
     backgroundColor: '#FFFFFF'
   },
   buttonContainer: {
-    flex: 2,
+    flex: 1,
     flexDirection: 'column'
   },
   startButton: {
