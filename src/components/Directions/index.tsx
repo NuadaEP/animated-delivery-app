@@ -25,12 +25,13 @@ export function Directions({
       destination={destination}
       origin={origin}
       onReady={onReady}
-      apikey="AIzaSyCD_811GmrjMKLCC2_kqKKB_AfgZpfbk_8"
+      apikey="AIzaSyAHHPzM_FnCR4WQdalyPoOIxAYhQEKlPFY"
       strokeWidth={3}
       strokeColor={Colors.app.blue}
       optimizeWaypoints
       precision="high"
       resetOnChange={resetOnChange}
+      // mode="DRIVING"
     />
   )
 }

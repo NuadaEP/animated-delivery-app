@@ -15,17 +15,18 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyAHHPzM_FnCR4WQdalyPoOIxAYhQEKlPFY"
+      }
     },
     "android": {
       "package": "br.com.toyougo.rn.poc",
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyCD_811GmrjMKLCC2_kqKKB_AfgZpfbk_8"
+          "apiKey": "AIzaSyAHHPzM_FnCR4WQdalyPoOIxAYhQEKlPFY"
         }
       }
     },
