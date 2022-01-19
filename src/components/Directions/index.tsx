@@ -1,25 +1,25 @@
 import MapViewDirections from 'react-native-maps-directions'
 
-import Colors from '../../constants/Colors'
+import { Colors } from '../../constants'
 
 interface IGeolocation {
   latitude: number
   longitude: number
 }
 
-interface IProps {
+interface DirectionsProps<T> {
   destination: IGeolocation
   origin: IGeolocation
-  onReady(result: any): void
+  onReady(result: T): void
   resetOnChange: boolean
 }
 
-export function Directions({
+export function Directions<T>({
   destination,
   origin,
   onReady,
   resetOnChange
-}: IProps) {
+}: DirectionsProps<T>) {
   return (
     <MapViewDirections
       destination={destination}
@@ -31,7 +31,6 @@ export function Directions({
       optimizeWaypoints
       precision="high"
       resetOnChange={resetOnChange}
-      // mode="DRIVING"
     />
   )
 }

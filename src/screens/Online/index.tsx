@@ -4,7 +4,7 @@ import type { StackScreenProps } from '@react-navigation/stack'
 
 import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 import { AnimatedImage, StyledText } from '../../components'
-import Colors from '../../constants/Colors'
+import { Colors } from '../../constants'
 
 import styles from './styles'
 

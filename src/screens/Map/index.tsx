@@ -16,20 +16,19 @@ import {
 import MapView, { Marker } from 'react-native-maps'
 import * as Location from 'expo-location'
 
-import Colors from '../../constants/Colors'
-import { getPixelSize } from '../../constants/Utils'
+import { getPixelSize, Colors } from '../../constants'
 import { Directions, StyledText } from '../../components'
 
 import styles from './styles'
 
 export function Map() {
   const [location, setLocation] = useState({
-    latitude: 0,
-    longitude: 0,
-    accuracy: 0,
-    altitude: 0,
-    altitudeAccuracy: 0,
-    heading: 0,
+    latitude: -22.2602992,
+    longitude: -48.5517889,
+    accuracy: 1,
+    altitude: 10,
+    altitudeAccuracy: 5,
+    heading: 1,
     speed: 0
   })
 

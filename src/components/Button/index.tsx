@@ -3,17 +3,17 @@ import { StyledText } from '../StyledText'
 
 import styles from './styles'
 
-interface IButton<T = void> {
+interface BottomProps<T> {
   text: string
   blue?: boolean
-  onPress(data: T): void | any
+  onPress(data: T): void
 }
 
 export function Button({
   text,
   onPress,
   blue = false
-}: IButton<GestureResponderEvent>) {
+}: BottomProps<GestureResponderEvent>) {
   return (
     <TouchableOpacity
       activeOpacity={0.8}

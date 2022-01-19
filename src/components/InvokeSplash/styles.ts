@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
-import Colors from '../../constants/Colors'
-import Layout from '../../constants/Layout'
+import { Colors, Layout } from '../../constants'
 
 const styles = StyleSheet.create({
   viewAnimated: {

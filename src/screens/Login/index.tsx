@@ -1,12 +1,12 @@
 import { useRef } from 'react'
 import { View, SafeAreaView, TextInput } from 'react-native'
+import type { StackScreenProps } from '@react-navigation/stack'
 
-import type IReference from '../../constants/types/IReference'
 import { Button, Logo } from '../../components'
+import type IReference from '../../constants/types/IReference'
+import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 
 import styles from './styles'
-import type { StackScreenProps } from '@react-navigation/stack'
-import type { RootStackParamList } from '../../constants/types/IRootStackParamList'
 
 export function Login({
   navigation

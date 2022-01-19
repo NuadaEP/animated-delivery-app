@@ -1,7 +1,7 @@
 const tintColorLight = '#2f95dc'
 const tintColorDark = '#fff'
 
-export default {
+export const Colors = {
   app: {
     black: '#1D1D1B',
     blue: '#00ABD7',
