@@ -4,7 +4,7 @@
     "slug": "poc-rn",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/iconLauncher/ic_launcher.png",
+    "icon": "./src/assets/images/iconLauncher/ic_icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -23,7 +23,7 @@
       }
     },
     "android": {
-      "package": "br.com.toyougo.rn.poc",
+      "package": "br.com.deliveryapp.rn.poc",
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyAHHPzM_FnCR4WQdalyPoOIxAYhQEKlPFY"

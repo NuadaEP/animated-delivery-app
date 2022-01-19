@@ -82,7 +82,7 @@ export function Call({
   }, [sound, Audio, callMusic])
 
   useEffect(() => {
-    // audio()
+    audio()
 
     Vibration.vibrate([1000, 1000], true)
   }, [audio, Vibration])

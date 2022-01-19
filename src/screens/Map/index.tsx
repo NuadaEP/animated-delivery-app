@@ -13,7 +13,7 @@ import {
   TouchableOpacity,
   Animated
 } from 'react-native'
-import MapView, { Marker } from 'react-native-maps'
+import MapView, { Marker, MapViewProps, LatLng } from 'react-native-maps'
 import * as Location from 'expo-location'
 
 import { getPixelSize, Colors } from '../../constants'
@@ -21,8 +21,43 @@ import { Directions, StyledText } from '../../components'
 
 import styles from './styles'
 
+type LatLon = {
+  latitude: number
+  longitude: number
+}
+
+type Location = LatLon & {
+  accuracy: number
+  altitude: number
+  altitudeAccuracy: number
+  heading: number
+  speed: number
+}
+
+type MapProps = MapViewProps & {
+  fitToCoordinates(
+    location: Array<Location>,
+    position: {
+      edgePadding: {
+        right?: number
+        left?: number
+        top?: number
+        bottom?: number
+      }
+      animated: true
+    }
+  ): void
+  animateCamera(
+    position: {
+      center: LatLon
+      zoom: number
+      pitch: number
+    } & Pick<Location, 'altitude' | 'heading'>
+  ): void
+}
+
 export function Map() {
-  const [location, setLocation] = useState({
+  const [location, setLocation] = useState<Location>({
     latitude: -22.2602992,
     longitude: -48.5517889,
     accuracy: 1,
@@ -35,7 +70,7 @@ export function Map() {
   const [navigate, setNavigate] = useState(false)
   const [canNavigate, setCanNavigate] = useState(false)
 
-  const mapView = useRef<any>(null)
+  const mapView = useRef<MapProps>(null)
 
   const destination = useMemo(
     () => ({ longitude: -48.5621955, latitude: -22.3005805 }),
@@ -76,7 +111,7 @@ export function Map() {
 
   const onDirectionReady = useCallback(
     result => {
-      mapView.current.fitToCoordinates([...result.coordinates], {
+      mapView.current?.fitToCoordinates([...result.coordinates], {
         edgePadding: {
           right: getPixelSize(50),
           left: getPixelSize(50),
@@ -93,7 +128,7 @@ export function Map() {
 
   const onPressRide = useCallback(
     (zoom: number, heading?: number) => {
-      mapView.current.animateCamera({
+      mapView.current?.animateCamera({
         center: {
           latitude: location.latitude,
           longitude: location.longitude
@@ -160,7 +195,7 @@ export function Map() {
       )}
       <MapView
         style={styles.mapView}
-        ref={mapView}
+        ref={mapView as any}
         showsUserLocation
         showsMyLocationButton={false}
         showsCompass={false}
