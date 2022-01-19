@@ -13,13 +13,14 @@ import {
   TouchableOpacity,
   Animated
 } from 'react-native'
-import MapView, { Marker, MapViewProps, LatLng } from 'react-native-maps'
+import MapView, { Marker, MapViewProps } from 'react-native-maps'
 import * as Location from 'expo-location'
 
 import { getPixelSize, Colors } from '../../constants'
 import { Directions, StyledText } from '../../components'
 
 import styles from './styles'
+import type { LocationObject } from 'expo-location'
 
 type LatLon = {
   latitude: number
@@ -80,10 +81,9 @@ export function Map() {
   const handleLocation = useCallback(async () => {
     await Location.requestForegroundPermissionsAsync()
 
-    const { coords }: SetStateAction<any> =
-      await Location.getLastKnownPositionAsync()
+    const location = await Location.getLastKnownPositionAsync()
 
-    setLocation(coords)
+    if (location) setLocation(location.coords as Location)
   }, [Location, setLocation])
 
   useEffect(() => {
